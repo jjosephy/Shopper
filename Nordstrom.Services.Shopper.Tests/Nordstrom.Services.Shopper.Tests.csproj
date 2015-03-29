@@ -52,8 +52,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressV1Tests.cs" />
+    <Compile Include="Extensions\AddressExtensions.cs" />
+    <Compile Include="ContractTests\V1\AddressV1Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ContractTests\V1\ShopperV1Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nordstrom.Services.Shopper\Nordstrom.Services.Shopper.csproj">
