@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace Shopper
+namespace Nordstrom.Services.Shopper
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
