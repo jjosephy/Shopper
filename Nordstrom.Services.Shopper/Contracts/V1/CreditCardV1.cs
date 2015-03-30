@@ -17,6 +17,13 @@ namespace Nordstrom.Services.Shopper.Contracts
             set;
         }
 
+        [JsonProperty(PropertyName = "bin")]
+        public AddressV1 Bin
+        {
+            get;
+            set;
+        }
+
         // TODO: find all card types and make this an enum
         [JsonProperty(PropertyName = "cardType")]
         public string CardType
@@ -55,6 +62,13 @@ namespace Nordstrom.Services.Shopper.Contracts
 
         [JsonProperty(PropertyName = "highValueToken")]
         public string HighValueToken
+        {
+            get;
+            set;
+        }
+
+        [JsonProperty(PropertyName = "pan")]
+        public string Pan
         {
             get;
             set;

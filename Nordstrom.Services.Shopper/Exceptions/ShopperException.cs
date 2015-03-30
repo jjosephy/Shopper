@@ -28,10 +28,10 @@ namespace Nordstrom.Services.Shopper.Exceptions
             return new ShopperException(message, ErrorCodes.InvalidVersionHeader, HttpStatusCode.BadRequest);
         }
 
-        public static HttpResponseException InvalidCorrelationIdHeader()
+        public static HttpResponseException InvalidShopperId()
         {
-            const string message = "Invalid Correlation Header provided";
-            return new ShopperException(message, ErrorCodes.InvalidVersionHeader, HttpStatusCode.BadRequest);
+            const string message = "Provided Shopper Id is Invalid";
+            return new ShopperException(message, ErrorCodes.InvalidShopperId, HttpStatusCode.BadRequest);
         }
 
         static HttpResponseMessage CreateMessage(

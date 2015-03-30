@@ -24,6 +24,11 @@ namespace Nordstrom.Services.Shopper.Exceptions
         /// </summary>
         public static uint InvalidVersionHeader { get { return 1002; } }
 
+        /// <summary>
+        /// Used when trying to add an item to the cart that already exists
+        /// </summary>
+        public static uint InvalidShopperId { get { return 1003; } }
+
         #endregion
 
         #region UnAuthorized (403) Errors

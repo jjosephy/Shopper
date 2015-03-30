@@ -10,13 +10,20 @@ using System.Web.Http;
 using Nordstrom.Services.Shopper.Contracts;
 using Nordstrom.Services.Shopper.Extensions;
 using Nordstrom.Services.Shopper.HttpContentFormatters;
+using Nordstrom.Services.Shopper.Exceptions;
 
 namespace Nordstrom.Services.Shopper.Controllers
 {
     public class WalletController : ApiController
     {
-        public Task<HttpResponseMessage> Get(Guid id)
+        public Task<HttpResponseMessage> Get(string id)
         {
+            Guid shopperGuid = Guid.Empty;
+            if ( !Guid.TryParse(id, out shopperGuid) )
+            {
+                throw ShopperException.InvalidShopperId();
+            }
+
             var context = this.CreateRequestContext();
             var wallet = new WalletV1
             {
@@ -26,7 +33,13 @@ namespace Nordstrom.Services.Shopper.Controllers
                     {
                         BillingAddress = new AddressV1
                         {
-
+                            Address1 = "1 Address Way",
+                            City = "City",
+                            FirstName = "first Name",
+                            LastName = "last name",
+                            Phone = "1234444444",
+                            State = "ST",
+                            Zip = "98122"
                         },
                         CardType = "VISA"
                     }
@@ -35,7 +48,8 @@ namespace Nordstrom.Services.Shopper.Controllers
 
             return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new JsonContent<WalletV1>(wallet as WalletV1)
+                Content = new JsonContent<WalletV1>(wallet as WalletV1),
+                
             });
         }
     }
