@@ -11,7 +11,7 @@ namespace Nordstrom.Services.Shopper.Contracts
     public class WalletV1
     {
         [JsonProperty(PropertyName = "creditCards")]
-        public CreditCardV1[] CreditCards
+        public IList<CreditCardV1> CreditCards
         {
             get;
             set;
